@@ -1,0 +1,52 @@
+
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{title}}</h4>
+    <button type="button" class="close" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="gradoForm">
+      <div class="form-group">
+        <label for="dateOfBirth">Grado</label>
+        <div class="input-group">
+  
+          <input id="dateOfBirth" class="form-control" placeholder="Grado" name="dp" formControlName="nom_grado">
+  
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="dateOfBirth2">Descripcion</label>
+        <div class="input-group">
+  
+          <input id="dateOfBirth2" class="form-control" placeholder="Descripcion" name="dp" formControlName="desc_grado">
+  
+        </div>
+      </div>
+
+      <div style="z-index: 10; display: inline;margin-right: 10px;" class="container row"> 
+            
+        <div  style="display: inline;" >
+            <label for="dateOfBirth2" style="display: inline-flex;" >Niveles</label>
+            <select style="border-style: solid; border-color: gray; display: inline;"   formControlName="nivel_id" placeholder="Departamento" size="giant" fullWidth
+              name="nivel_id" aria-placeholder="asdf"  >
+                
+                <option  *ngFor="let item of niveles" [value]="item.id">{{ item.nom_nivel }}
+                </option>
+               
+              
+              
+            </select>
+        </div>
+
+        </div>
+
+
+    </form>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="edit()">Save</button>
+    </div>
+  </div>
+  
+  
+

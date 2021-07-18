@@ -1,0 +1,114 @@
+  <!--<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{title}}</h4>
+    <button type="button" class="close" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>-->
+
+  <nb-card style="display: flex;" size="medium" >
+    <nb-card-header>
+  
+  
+    </nb-card-header>
+    <nb-card-body >
+      
+        <form [formGroup]="cursoForm">
+          <div class="form-group">
+            <label for="dateOfBirth">Código Curso</label>
+            <div class="input-group">
+      
+              <input id="dateOfBirth" class="form-control" placeholder="Código curso" name="dp" formControlName="cod_curso">
+      
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="dateOfBirth2">Curso</label>
+            <div class="input-group">
+      
+              <input id="dateOfBirth2" class="form-control" placeholder="Curso" name="dp" formControlName="nom_curso">
+      
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="dateOfBirth2">Nota máxima</label>
+            <div class="input-group">
+      
+              <input id="dateOfBirth2" class="form-control" placeholder="Nota máxima" name="dp" formControlName="nota_max">
+      
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="dateOfBirth2">Horas Presenciales</label>
+            <div class="input-group">
+      
+              <input id="dateOfBirth2" class="form-control" placeholder="horas presenciales" name="dp" formControlName="num_horas_p">
+      
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="dateOfBirth2">Horas no Presenciales</label>
+            <div class="input-group">
+      
+              <input id="dateOfBirth2" class="form-control" placeholder="horas no presenciales" name="dp" formControlName="num_horas_np">
+      
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="dateOfBirth2">Estado</label>
+            <div class="input-group">
+      
+              <input id="dateOfBirth2" class="form-control" placeholder="Estado" name="dp" formControlName="estado_curso">
+      
+            </div>
+          </div>
+    
+            
+         
+          <div style="z-index: 10; display: inline;margin-right: 10px;" class="container row"> 
+              
+            <div  style="display: inline;" >
+                <label for="dateOfBirth2" style="display: inline-flex;" >Areas</label>
+                <select style="border-style: solid; border-color: gray; display: inline;"   formControlName="area_id" placeholder="Departamento" size="giant" fullWidth
+                  name="nivel_id" aria-placeholder="asdf" >
+                    
+                    <option  *ngFor="let item of areas" [value]="item.id">{{ item.nom_area }}
+                    </option>
+                   
+                  
+                  
+                </select>
+            </div>
+  
+            </div>
+  
+           
+      
+    
+        </form>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="save()" [disabled]="cursoForm.invalid">Guardar</button>
+        </div>
+      
+  
+  
+  
+    </nb-card-body>
+  
+  
+  
+  
+  </nb-card>
+  
+  
+  
+  
+    
+    
+    
+  
+  
+  

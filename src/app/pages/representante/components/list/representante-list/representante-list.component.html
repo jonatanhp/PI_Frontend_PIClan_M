@@ -1,0 +1,41 @@
+<br>
+<br>
+<br><br>
+<br>
+
+<div class="container">
+
+  <button class="btn btn-primary" (click)="newRepresentante()"> Agregar Representante</button>
+  
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Cod Representante</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellidos</th>
+      <th scope="col">Date Created</th>
+      <th scope="col">Date Updated</th>
+      <th scope="col"> Opciones</th>
+    </tr>
+    </thead>
+    <tbody>
+      
+    <tr *ngFor="let n of representantes">
+      <th scope="row">{{n.id}}</th>
+      <td>{{n.cod_representante}}</td>
+      <td>{{n.complete.name}}</td>
+      <td>{{n.complete.ap_pat}}  {{n.complete.ap_mat}}</td>
+      <td>{{n.created_at}}</td>
+      <td>{{n.updated_at}}</td>
+      <td><button class="btn-danger" (click)="delete(n.id)">Eliminar</button>
+        <button class="btn-primary" (click)="editRepresentante(n.id)">Editar</button>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+

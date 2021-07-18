@@ -7,6 +7,12 @@ import { UserProfileComponent } from '../../pages/user-profile/user-profile.comp
 import { TablesComponent } from '../../pages/tables/tables.component';
 import {NivelComponent} from '../../pages/nivel/container/nivel/nivel.component';
 import { AlumnoComponent } from 'src/app/pages/alumno/container/alumno/alumno.component';
+import { GradoComponent} from '../../pages/grado/container/grado/grado.component';
+import { SeccionComponent} from '../../pages/seccion/container/seccion/seccion.component';
+import { AreaComponent} from '../../pages/area/container/area/area.component';
+import { CursoComponent} from '../../pages/curso/container/curso/curso.component';
+import {DocenteComponent} from '../../pages/docente/container/docente/docente.component';
+import { RepresentanteComponent } from '../../pages/representante/container/representante/representante.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -15,5 +21,11 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
     {path: 'niveles',         component:NivelComponent},
-    {path: 'alumnos',         component:AlumnoComponent}
+    {path: 'alumnos',         component:AlumnoComponent},
+    {path: 'grados',         component:GradoComponent},
+    {path: 'secciones',         component:SeccionComponent},
+    {path: 'areas',         component:AreaComponent},
+    {path: 'cursos',         component:CursoComponent},
+    {path: 'docentes',         component:DocenteComponent},
+    {path: 'representantes',         component:RepresentanteComponent}
 ];

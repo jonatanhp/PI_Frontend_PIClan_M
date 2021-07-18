@@ -3,5 +3,5 @@ export interface Nivel{
     nom_nivel:string;
     desc_nivel:string;
     created_at:string;
-    updated_at:Date;
+    updated_at:string;
 }

@@ -7,7 +7,7 @@ import {catchError, retry} from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class NivelsService {
+export class NivelService {
   httpHeaders = {
     headers: new HttpHeaders({
       //'Access-Control-Allow-Origin': 'http://localhost:8000/niveles',
@@ -29,7 +29,7 @@ export class NivelsService {
         catchError(this.httpError));
   }
 
-  public getNivelById(id: bigint): Observable<any> {
+  public getNivelById(id: number): Observable<any> {
     return this.httpClient.get<any>(`${environment.url}${this.endPoint}${id}`, this.httpHeaders)
       .pipe(retry(1),
         catchError(this.httpError));
@@ -42,7 +42,7 @@ export class NivelsService {
         catchError(this.httpError));
   }
 
-  public updateNivel(id: bigint, params): Observable<any> {
+  public updateNivel(id: number, params): Observable<any> {
     return this.httpClient.put(`${environment.url}${this.endPoint}${id}`, params, this.httpHeaders)
       .pipe(retry(1),
         catchError(this.httpError));
@@ -52,6 +52,13 @@ export class NivelsService {
 
     return this.httpClient.delete(`${environment.url}${this.endPoint}${id}`, this.httpHeaders)
       .pipe(retry(1),
+        catchError(this.httpError));
+  }
+
+  public getGrados(id:number):Observable<any>{
+
+    return this.httpClient.get(`${environment.url}${this.endPoint}${id}/grados`, this.httpHeaders)
+    .pipe(retry(1),
         catchError(this.httpError));
   }
 

@@ -1,0 +1,39 @@
+<br>
+<br>
+<br><br>
+<br>
+
+<div class="container">
+
+  <button class="btn btn-primary" (click)="newArea()"> Agregar Area</button>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Area</th>
+      <th scope="col">Descripcion</th>
+      <th scope="col">Date Created</th>
+      <th scope="col">Date Updated</th>
+      <th scope="col"> Opciones</th>
+    </tr>
+    </thead>
+    <tbody>
+      
+    <tr *ngFor="let n of areas" >
+      <th>{{n.id}}</th>
+      <td>{{n.cod_area}}</td>
+      <td>{{n.nom_area}}</td>
+      <td>{{n.created_at}}</td>
+      <td>{{n.updated_at}}</td>
+      <td><button class="btn-danger" (click)="delete(n.id)">Eliminar</button>
+        <button class="btn-primary" (click)="editArea(n.id)">Editar</button>
+        <button class="btn-success" (click)="searchCursosOfArea(n.id)">Cursos</button>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+
+

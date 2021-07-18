@@ -1,0 +1,33 @@
+
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{title}}</h4>
+    <button type="button" class="close" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="areaForm">
+      <div class="form-group">
+        <label for="dateOfBirth">Código de Área</label>
+        <div class="input-group">
+  
+          <input id="dateOfBirth" class="form-control" placeholder="Nivel" name="dp" formControlName="cod_area">
+  
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="dateOfBirth2">Area</label>
+        <div class="input-group">
+  
+          <input id="dateOfBirth2" class="form-control" placeholder="Descripcion" name="dp" formControlName="nom_area">
+  
+        </div>
+      </div>
+    </form>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="edit()">Save</button>
+    </div>
+  </div>
+  
+  
+

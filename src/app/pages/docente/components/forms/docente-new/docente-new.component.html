@@ -1,0 +1,33 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{title}}</h4>
+    <button type="button" class="close" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="docenteForm">
+      <div class="form-group">
+        <label for="dateOfBirth">Código de docente</label>
+        <div class="input-group">
+  
+          <input id="dateOfBirth" class="form-control" placeholder="docente" name="dp" formControlName="cod_docente">
+  
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="dateOfBirth2">Id de usuario</label>
+        <div class="input-group">
+  
+          <input id="dateOfBirth2" class="form-control" placeholder="descripción" name="dp" formControlName="user_id">
+  
+        </div>
+      </div>
+    </form>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="save()" [disabled]="docenteForm.invalid">Guardar</button>
+    </div>
+  </div>
+  
+  
+
+

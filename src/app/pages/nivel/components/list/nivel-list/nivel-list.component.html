@@ -20,14 +20,15 @@
     </thead>
     <tbody>
       
-    <tr *ngFor="let n of nivels">
+    <tr *ngFor="let n of niveles">
       <th scope="row">{{n.id}}</th>
       <td>{{n.nom_nivel}}</td>
       <td>{{n.desc_nivel}}</td>
       <td>{{n.created_at}}</td>
       <td>{{n.updated_at}}</td>
-      <td><button class="btn-danger" (click)="delete(n.id)">Eliminar</button>
+      <td><button nbButton outline status="primary" (click)="delete(n.id)">Eliminar</button>
         <button class="btn-primary" (click)="editNivel(n.id)">Editar</button>
+        <button class="btn-success" (click)="searchGradosOfNivel(n.id)">Grados</button>
       </td>
     </tr>
 

@@ -12,7 +12,8 @@
     <tr>
       <th scope="col">Id</th>
       <th scope="col">Código de Alumno</th>
-      <th scope="col">Id usuario</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellidos</th>
       <th scope="col">Date Created</th>
       <th scope="col">Date Updated</th>
       <th scope="col"> Opciones</th>
@@ -23,7 +24,8 @@
     <tr *ngFor="let n of alumnos">
       <th scope="row">{{n.id}}</th>
       <td>{{n.cod_alumno}}</td>
-      <td>{{n.user_id}}</td>
+      <td>{{n.complete.name}}</td>
+      <td>{{n.complete.ap_pat}}  {{n.complete.ap_mat}}</td>
       <td>{{n.created_at}}</td>
       <td>{{n.updated_at}}</td>
       <td><button class="btn-danger" (click)="delete(n.id)">Eliminar</button>

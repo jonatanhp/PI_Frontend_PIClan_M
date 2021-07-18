@@ -5,12 +5,38 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {
+  NbThemeModule, NbLayoutModule, NbCardModule,
+  NbSidebarModule, NbMenuModule, NbUserModule, NbActionsModule,
+  NbContextMenuModule, NbDialogModule, NbIconModule, NbButtonModule, NbSelectModule, NbSpinnerModule, NbDatepickerModule,
+} from '@nebular/theme';
+//import { NbCardComponent} from '@nebular/theme';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { ThemeModule } from '../@theme/theme.module';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    NgbModule
+    NbThemeModule.forRoot({ name: 'default' }),
+    NbLayoutModule,
+    NbMenuModule,
+    NbUserModule,
+    NbActionsModule,
+    NbContextMenuModule,
+    NbDialogModule,
+    ThemeModule,
+    NbIconModule,
+    NbButtonModule,NbSelectModule,
+    NbSpinnerModule,
+    NbDatepickerModule,
+    NbEvaIconsModule,
+    //NbCardComponent,
+    NgbModule,
+    NbCardModule,
+    NbSidebarModule.forRoot(),
+    
+    
   ],
   declarations: [
     FooterComponent,

@@ -4,5 +4,6 @@ export interface Alumno {
     id: number;
     user_id: number;
     updated_at: string;
+    complete:Array<string>;
   }
   
