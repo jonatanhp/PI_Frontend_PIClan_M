@@ -1,0 +1,68 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{title}}</h4>
+    <button type="button" class="close" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="matriculaForm">
+      
+      <div class="form-group">
+        <label for="dateOfBirth2">Alumno id</label>
+        <div class="input-group">
+  
+          <input id="dateOfBirth2" class="form-control" placeholder={{ids}} name="dp" formControlName="alumno_id" value={{ids}} maxlength="2" size="2" >
+  
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="dateOfBirth">Cod matricula</label>
+        <div class="input-group">
+  
+          <input id="dateOfBirth" class="form-control" placeholder="matricula" name="dp" formControlName="cod_matricula">
+  
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="dateOfBirth2">Confirmación</label>
+        <div class="input-group">
+  
+          <input id="dateOfBirth2" class="form-control" placeholder="descripción" name="dp" formControlName="confirmacion">
+  
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="periodo_id" class="label required">Periodo</label>
+        <select class="form-control  form-control-sm" formControlName="periodo_id" placeholder="Nivel" size="small" fullWidth
+          name="periodo_id" id="periodo_id">
+          <option *ngFor="let item of periodos" [value]="item.id">{{ item.nom_periodo }}
+          </option>
+          
+          <option></option>
+        </select>
+      </div>
+
+     
+
+      
+      <div class="form-group col-md-6">
+        <label for="representante_id" class="label required">Representante</label>
+        <select class="form-control  form-control-sm" formControlName="representante_id" placeholder="Nivel" size="small" fullWidth
+          name="representante_id" id="representante_id">
+          <option *ngFor="let item of representantes" [value]="item.id">{{ item.complete.name }}{{ item.complete.ap_pat }}
+          </option>
+          
+          <option></option>
+        </select>
+      </div>
+    </form>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="save()" [disabled]="matriculaForm.invalid">Guardar</button>
+    </div>
+  </div>
+  
+  
+

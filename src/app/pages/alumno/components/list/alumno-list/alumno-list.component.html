@@ -11,12 +11,12 @@
     <thead>
     <tr>
       <th scope="col">Id</th>
-      <th scope="col">Código de Alumno</th>
+      <th scope="col">Cod Alumno</th>
       <th scope="col">Nombre</th>
       <th scope="col">Apellidos</th>
       <th scope="col">Date Created</th>
       <th scope="col">Date Updated</th>
-      <th scope="col"> Opciones</th>
+      <th scope="col">                Opciones</th>
     </tr>
     </thead>
     <tbody>
@@ -28,12 +28,22 @@
       <td>{{n.complete.ap_pat}}  {{n.complete.ap_mat}}</td>
       <td>{{n.created_at}}</td>
       <td>{{n.updated_at}}</td>
-      <td><button class="btn-danger" (click)="delete(n.id)">Eliminar</button>
-        <button class="btn-primary" (click)="editAlumno(n.id)">Editar</button>
+      <td><button nbButton status="danger" (click)="delete(n.id)">Eliminar</button>
+        <button nbButton status="success" (click)="editAlumno(n.id)">Editar</button>
+        <button nbButton status="warning" (click)="onNewMatricula(n.id)">Matricular</button>
+        <button nbButton status="primary" (click)="getContratosOfAlumno(n.id)">Contratos</button>
       </td>
     </tr>
 
     </tbody>
   </table>
+
+
+  
+      <nb-select multiple placeholder="Multiple Select" ([ngModel])="lista">
+        <nb-option *ngFor="let item of alumnos" [value]="item.id">{{ item.complete.name }}</nb-option>
+        
+      </nb-select>
+ 
 </div>
 

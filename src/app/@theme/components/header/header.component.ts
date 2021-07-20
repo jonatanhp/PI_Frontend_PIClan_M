@@ -6,6 +6,7 @@ import { LayoutService } from '../../../@core/utils/layout.service';
 import { map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
+
 @Component({
   selector: 'ngx-header',
   styleUrls: ['./header.component.scss'],
@@ -39,7 +40,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   currentTheme = 'default';
 
   userMenu = [ { title: 'Profile' }, { title: 'Log out' } ];
-
+  username:string;
+  
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
               private themeService: NbThemeService,
@@ -49,6 +51,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.username=`${localStorage.getItem('nameUser')}`
     this.currentTheme = this.themeService.currentTheme;
 
    /* this.userService.getUsers()

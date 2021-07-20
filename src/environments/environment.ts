@@ -5,6 +5,7 @@
 export const environment = {
   //url: 'http://192.168.88.76:8000/api/',
   url: 'http://localhost:8000/api/',
+  cod_initial:2021,
   production: false
 };
 

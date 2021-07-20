@@ -4,6 +4,18 @@ import { Alumno } from '../../model/alumno';
 import { AlumnoNewComponent } from '../../components/forms/alumno-new/alumno-new.component';
 import { AlumnoEditComponent } from '../../components/forms/alumno-edit/alumno-edit.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { PeriodoService } from 'src/providers/periodo/periodo.service';
+import { RepresentanteService } from 'src/providers/representante/representante.service';
+import { Periodo } from 'src/app/pages/periodo/model/periodo';
+import { Representante } from 'src/app/pages/representante/model/representante';
+import { AlumnoContratosComponent} from '../../../../pages/alumno/components/forms/alumno-contratos/alumno-contratos.component';
+
+import { CmatriculaNewComponent } from 'src/app/pages/cmatricula/components/forms/cmatricula-new/cmatricula-new.component';
+import { CmatriculaEditComponent } from 'src/app/pages/cmatricula/components/forms/cmatricula-edit/cmatricula-edit.component';
+import { CmatriculaService } from 'src/providers/cmatricula/cmatricula.service';
+import { inject } from '@angular/core/testing';
+import { Cmatricula } from 'src/app/pages/cmatricula/model/cmatricula';
+
 
 @Component({
   selector: 'app-alumno',
@@ -14,9 +26,14 @@ export class AlumnoComponent implements OnInit {
 
   error:string;
   alumnos:Alumno[];
+  alumnoss:Alumno[];
   alumno:Alumno;
+  periodos:Periodo[];
+  representantes:Representante[];
+  cmatriculas:Cmatricula[];
 
-  constructor(private alumnoService:AlumnoService, private modalService:NgbModal) {
+  constructor(private alumnoService:AlumnoService, private periodoService:PeriodoService,
+    representanteService:RepresentanteService, private cmatriculaService:CmatriculaService, private modalService:NgbModal) {
 
    }
 
@@ -90,5 +107,61 @@ export class AlumnoComponent implements OnInit {
       this.error=error;
     });
   }
+
+  onNewMatricula(eventalumno: string){
+    console.log("nnnn");
+    console.log(eventalumno);   
+      
+      const productForm = this.modalService.open(CmatriculaNewComponent,  {size: 'lg'});
+      productForm.componentInstance.ids= eventalumno;
+      productForm.componentInstance.title = 'Nueva Matricula';
+      productForm.componentInstance.ids=eventalumno;
+      console.log("qwert");
+      console.log(productForm.componentInstance.ids);
+      console.log("qwert");
+      productForm.result.then((result) => {
+        console.log("ya estoy harto");
+        console.log(result);
+        this.cmatriculaService.postCmatricula(result).subscribe(response => {
+          //if (response.success) {
+            console.log(response);
+          //}
+        }, error => {
+          this.error = error;
+        });
+    
+      });
+  
+      
+      
+  
+    }
+
+    getContratosOfAlumno(id:number):void{
+      this.alumnoService.getContratos(id).subscribe(response=>{
+        this.cmatriculas=response.data;
+        console.log("muerete");
+        for (let g of this.cmatriculas){  
+          console.log("añslfjasdf");
+          console.log(g.cod_matricula);
+          //this.listaNiveles.push(gg);
+            
+        }
+        const gradosOfNivelForm=this.modalService.open(AlumnoContratosComponent,{size:'lg'});
+        gradosOfNivelForm.componentInstance.title="Lista de grados";
+        gradosOfNivelForm.componentInstance.cmatriculas=this.cmatriculas;
+        console.log("inicio recuperar grados de nivel");
+        console.log(this.cmatriculas);
+        for (let g of this.cmatriculas){  
+          console.log("añslfjasdf");
+          console.log(g.cod_matricula);
+          //this.listaNiveles.push(gg);
+            
+        }
+        
+        console.log("fin recuperar grados de nivel");
+      });
+  
+    }
 
 }

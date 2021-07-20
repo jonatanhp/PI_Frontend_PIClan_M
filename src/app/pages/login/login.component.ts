@@ -11,6 +11,7 @@ import {Router} from "@angular/router";
 export class LoginComponent implements OnInit, OnDestroy {
   public loginForm: FormGroup;
   error: string;
+  username:string;
 
   constructor(private formBuilder: FormBuilder, private loginService: LoginService, private router: Router) {
     this.loginForm = this.formBuilder.group({
@@ -31,6 +32,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.loginService.login(this.loginForm.value).subscribe(response => {
       if (response.data.token) {
         localStorage.setItem('accessToken', response.data.token);
+        localStorage.setItem('nameUser', response.data.ap_pat);
+        this.username=localStorage.getItem('nameUser')
         if (localStorage.getItem('accessToken')) {
           this.redirectInto();
         }
@@ -41,6 +44,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   redirectInto(): void {
-    this.router.navigate(['dashboard']);
+    this.router.navigate(['cargas']);
   }
 }

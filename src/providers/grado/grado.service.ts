@@ -55,12 +55,13 @@ export class  GradoService{
         catchError(this.httpError));
   }
 
-  public getNivel(id:number):Observable<any>{
+  public getSecciones(id:number):Observable<any>{
 
-    return this.httpClient.get(`${environment.url}${this.endPoint}${id}/nivel`, this.httpHeaders)
+    return this.httpClient.get(`${environment.url}${this.endPoint}${id}/secciones`, this.httpHeaders)
     .pipe(retry(1),
         catchError(this.httpError));
   }
+
 
   httpError(error) {
     let msg = '';

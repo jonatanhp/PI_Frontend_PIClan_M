@@ -31,6 +31,11 @@ export const ROUTES: NbMenuItem[] = [
                                                           {title:'Docentes', link:'/docentes'},
                                                           {title:'Representantes', link:'/representantes'},
                                                                     ], },
+  { title: 'Matricula', icon: 'layers-outline', children:[{title:'Cargas', link:'/cargas'},
+                                                          {title:'Carga Alumno', link:'/alumnoc'},
+                                                          {title:'Periodo', link:'/periodos'},
+                                                          {title:'Contratos', link:'/cmatriculas'},
+                                                                              ], },
   /*{path: '/secciones', title: 'Secciones', icon: 'ni-bullet-list-67 text-red', class: ''},
   {path: '/products', title: 'Products', icon: 'ni-bullet-list-67 text-red', class: ''},
   {path: '/departamentos', title: 'Departamentos', icon: 'ni-bullet-list-67 text-red', class: ''},*/

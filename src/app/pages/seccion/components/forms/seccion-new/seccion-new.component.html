@@ -4,6 +4,13 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
+
+  
+
+
+  
+
+  
   <div class="modal-body">
     <form [formGroup]="seccionForm">
       <div class="form-group">
@@ -23,9 +30,11 @@
         </div>
       </div>
 
+      
+
       <div class="form-group col-md-6">
         <label for="grado_id1" class="label required">Nivel</label>
-        <select (ngModelChange)="getGradosOfNivel($event)"   placeholder="Nivel" size="small" fullWidth
+        <select class="form-control  form-control-sm" (change)="getGradosOfNivel($event)"  name="test" placeholder="Nivel" size="small" 
           name="grado_id1" id="grado_id1">
           <option *ngFor="let item of niveles" [value]="item.id" >{{ item.nom_nivel }}
           </option>
@@ -36,9 +45,9 @@
 
       <div class="form-group col-md-6">
         <label for="grado_id1" class="label required">Grado</label>
-        <select formControlName="grado_id1" placeholder="Nivel" size="small" fullWidth
+        <select class="form-control  form-control-sm" formControlName="grado_id1" placeholder="Nivel" size="small" fullWidth
           name="grado_id1" id="grado_id1">
-          <option *ngFor="let item of grados" [value]="item.id">{{ item.nom_grado }}
+          <option  (keyup)="fetchSeries($event)"  [(ngModel)]="searchInput"  *ngFor="let item of grados" [value]="item.id">{{ item.nom_grado }}
           </option>
           
           <option></option>

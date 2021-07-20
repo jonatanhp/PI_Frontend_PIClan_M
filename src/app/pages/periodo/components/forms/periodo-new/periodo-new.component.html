@@ -1,0 +1,40 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{title}}</h4>
+    <button type="button" class="close" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="periodoForm">
+      <div class="form-group">
+        <label for="dateOfBirth">Periodo</label>
+        <div class="input-group">
+  
+          <input id="dateOfBirth" class="form-control" placeholder="periodo" name="dp" formControlName="nom_periodo">
+  
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="dateOfBirth2">Descripcion</label>
+        <div class="input-group">
+  
+          <input id="dateOfBirth2" class="form-control" placeholder="descripción" name="dp" formControlName="desc_periodo">
+  
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="dateOfBirth2">Estado</label>
+        <div class="input-group">
+  
+          <input id="dateOfBirth2" class="form-control" placeholder="estado" name="dp" formControlName="estado">
+  
+        </div>
+      </div>
+    </form>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="save()" [disabled]="periodoForm.invalid">Guardar</button>
+    </div>
+  </div>
+  
+  
+

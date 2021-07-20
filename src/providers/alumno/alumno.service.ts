@@ -55,6 +55,13 @@ export class AlumnoService {
         catchError(this.httpError));
   }
 
+  public getContratos(id:number):Observable<any>{
+
+    return this.httpClient.get(`${environment.url}${this.endPoint}${id}/contratos`, this.httpHeaders)
+    .pipe(retry(1),
+        catchError(this.httpError));
+  }
+
   httpError(error) {
     let msg = '';
     if (error.error instanceof ErrorEvent) {

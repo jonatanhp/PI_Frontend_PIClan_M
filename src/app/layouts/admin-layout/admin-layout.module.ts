@@ -32,6 +32,7 @@ import { AlumnoNewComponent } from 'src/app/pages/alumno/components/forms/alumno
 import { AlumnoEditComponent } from 'src/app/pages/alumno/components/forms/alumno-edit/alumno-edit.component';
 import { AlumnoListComponent } from 'src/app/pages/alumno/components/list/alumno-list/alumno-list.component';
 import { AlumnoService } from 'src/providers/alumno/alumno.service';
+import { AlumnoContratosComponent} from '../../pages/alumno/components/forms/alumno-contratos/alumno-contratos.component';
 
 
 import { ThemeModule } from '../../@theme/theme.module';
@@ -72,6 +73,30 @@ import { RepresentanteNewComponent } from 'src/app/pages/representante/component
 import { RepresentanteEditComponent } from 'src/app/pages/representante/components/forms/representante-edit/representante-edit.component';
 import { RepresentanteListComponent } from 'src/app/pages/representante/components/list/representante-list/representante-list.component';
 import { RepresentanteService } from 'src/providers/representante/representante.service';
+
+import { CargaComponent } from 'src/app/pages/carga/container/carga/carga.component';
+import { CargaNewComponent } from 'src/app/pages/carga/components/forms/carga-new/carga-new.component';
+import { CargaEditComponent } from 'src/app/pages/carga/components/forms/carga-edit/carga-edit.component';
+import { CargaListComponent } from 'src/app/pages/carga/components/list/carga-list/carga-list.component';
+import { CargaService } from 'src/providers/carga/carga.service';
+
+import { AlumnoCComponent } from 'src/app/pages/alumnoC/container/alumno-c/alumno-c.component';
+import { AlumnoCNewComponent } from 'src/app/pages/alumnoC/components/forms/alumno-c-new/alumno-c-new.component';
+import { AlumnoCEditComponent } from 'src/app/pages/alumnoC/components/forms/alumno-c-edit/alumno-c-edit.component';
+import { AlumnoCListComponent } from 'src/app/pages/alumnoC/components/list/alumno-c-list/alumno-c-list.component';
+import { AlumnoCService } from 'src/providers/alumnoC/alumnoC.service';
+
+import { PeriodoComponent } from 'src/app/pages/periodo/container/periodo/periodo.component';
+import { PeriodoNewComponent } from 'src/app/pages/periodo/components/forms/periodo-new/periodo-new.component';
+import { PeriodoEditComponent } from 'src/app/pages/periodo/components/forms/periodo-edit/periodo-edit.component';
+import { PeriodoListComponent } from 'src/app/pages/periodo/components/list/periodo-list/periodo-list.component';
+import { PeriodoService } from 'src/providers/periodo/periodo.service';
+
+import { CmatriculaComponent } from 'src/app/pages/cmatricula/container/cmatricula/cmatricula.component';
+import { CmatriculaNewComponent } from 'src/app/pages/cmatricula/components/forms/cmatricula-new/cmatricula-new.component';
+import { CmatriculaEditComponent } from 'src/app/pages/cmatricula/components/forms/cmatricula-edit/cmatricula-edit.component';
+import { CmatriculaListComponent } from 'src/app/pages/cmatricula/components/list/cmatricula-list/cmatricula-list.component';
+import { CmatriculaService } from 'src/providers/cmatricula/cmatricula.service';
 
 
 // import { ToastrModule } from 'ngx-toastr';
@@ -123,6 +148,7 @@ import { RepresentanteService } from 'src/providers/representante/representante.
     AlumnoNewComponent,
     AlumnoEditComponent,
     AlumnoListComponent,
+    AlumnoContratosComponent,
 
     GradoComponent,
     GradoNewComponent,
@@ -154,9 +180,30 @@ import { RepresentanteService } from 'src/providers/representante/representante.
     RepresentanteNewComponent,
     RepresentanteEditComponent,
     RepresentanteListComponent,
+
+    CargaComponent,
+    CargaNewComponent,
+    CargaEditComponent,
+    CargaListComponent,
+
+    AlumnoCComponent,
+    AlumnoCNewComponent,
+    AlumnoCEditComponent,
+    AlumnoCListComponent,
+
+    PeriodoComponent,
+    PeriodoNewComponent,
+    PeriodoEditComponent,
+    PeriodoListComponent,
+
+    CmatriculaComponent,
+    CmatriculaNewComponent,
+    CmatriculaEditComponent,
+    CmatriculaListComponent,
     
   ], providers: [NivelService, GradoService, SeccionService, AreaService, CursoService, AlumnoService,
-    DocenteService, RepresentanteService, LayoutService, NbThemeModule.forRoot({
+    DocenteService, RepresentanteService, CargaService, AlumnoCService, PeriodoService, CmatriculaService,
+     LayoutService, NbThemeModule.forRoot({
     name: 'default',
 },
 [DEFAULT_THEME],).providers]

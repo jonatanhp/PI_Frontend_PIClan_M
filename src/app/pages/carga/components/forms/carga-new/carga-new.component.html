@@ -1,1 +1,108 @@
-<p>carga-new works!</p>
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{title}}</h4>
+    <button type="button" class="close" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="cargaForm">
+      <div class="form-group">
+        <label for="dateOfBirth">Fecha de incio</label>
+        <div class="input-group">
+  
+          <input type="date" id="dateOfBirth" class="form-control" placeholder="nivel" name="dp" formControlName="fecha_inicio" [(ngModel)]="degree">
+  
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="dateOfBirth2">Fecha de término</label>
+        <div class="input-group">
+  
+          <input type="date" id="dateOfBirth2" class="form-control" placeholder="descripción" name="dp" formControlName="fecha_fin">
+  
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="grado_id1" class="label required">Area</label>
+        <select class="form-control  form-control-sm" (change)="getCursosOfAreas($event)" [(ngModel)]="ccc" [ngModelOptions]="{standalone: true}"  placeholder="Area" size="small" 
+          >
+          <option *ngFor="let item of areas" [value]="item.id" >{{ item.nom_area }}
+          </option>
+          
+          <option></option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="grado_id1" class="label required">Curso</label>
+        <select class="form-control  form-control-sm" formControlName="curso_id" placeholder="Nivel" size="small" fullWidth
+          name="curso_id" id="curso_id">
+          <option *ngFor="let item of cursos" [value]="item.id">{{ item.nom_curso }}
+          </option>
+          
+          <option></option>
+        </select>
+      </div>
+
+      
+
+      <div class="form-group col-md-6">
+        <label for="grado_id1" class="label required">Nivel</label>
+        <select class="form-control  form-control-sm" (change)="getGradosOfNivel($event)"   placeholder="Nivel" size="small" 
+          >
+          <option *ngFor="let item of niveles" [value]="item.id" >{{ item.nom_nivel }}
+          </option>
+          
+          <option></option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="grado_id1" class="label required">Grado</label>
+        <select class="form-control  form-control-sm" (change)="getSeccionesOfGrado($event)"   placeholder="Grado" size="small" 
+          >
+          <option *ngFor="let item of grados" [value]="item.id" >{{ item.nom_grado }}
+          </option>
+          
+          <option></option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="seccion_id" class="label required">Seccion</label>
+        <select class="form-control  form-control-sm" formControlName="seccion_id"  placeholder="Seccion" size="small" 
+          name="seccion_id" id="seccion_id">
+          <option *ngFor="let item of secciones" [value]="item.id" >{{ item.nom_seccion }}
+          </option>
+          
+          <option></option>
+        </select>
+      </div>
+
+      <div>
+        <button nbButton outline status="primary" (click)="generatePdf()">Generar contrato</button>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="docente_id" class="label required">Docente</label>
+        <select class="form-control  form-control-sm" formControlName="docente_id" placeholder="Nivel" size="small" fullWidth
+          name="docente_id" id="docente_id">
+          <option *ngFor="let item of docentes" [value]="item.id">{{ item.complete.name }}
+          </option>
+          
+          <option></option>
+        </select>
+      </div>
+      
+
+    </form>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="save()" [disabled]="cargaForm.invalid">Guardar</button>
+    </div>
+  </div>
+  
+  
+
+
+

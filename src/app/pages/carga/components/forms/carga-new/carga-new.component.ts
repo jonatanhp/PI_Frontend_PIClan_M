@@ -17,6 +17,12 @@ import { AreaService } from 'src/providers/area/area.service';
 
 import { GradoService } from 'src/providers/grado/grado.service';
 
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
+
+import { Resume, Experience, Education, Skill } from './resume';
 
 @Component({
   selector: 'app-carga-new',
@@ -35,6 +41,21 @@ export class CargaNewComponent implements OnInit {
   secciones:Seccion[];
   docentes:Docente[];
   error:String;
+  degree:Date;
+  ccc:string;
+  
+  generatePdf(action = 'open') {
+    const documentDefinition = this.getDocumentDefinition();
+    switch (action) {
+      case 'open': pdfMake.createPdf(documentDefinition).open(); break;
+      case 'print': pdfMake.createPdf(documentDefinition).print(); break;
+      case 'download': pdfMake.createPdf(documentDefinition).download(); break;
+      default: pdfMake.createPdf(documentDefinition).open(); break;
+    }
+  }
+
+   resume = new Resume();
+   degrees = ['B.E.', 'M.E.', 'B.Com', 'M.Com'];
 
   constructor(private formBuilder:FormBuilder, public activeModal: NgbActiveModal, private areaService:AreaService, 
     private nivelService:NivelService, private docenteService:DocenteService, private gradoService:GradoService) {
@@ -49,16 +70,20 @@ export class CargaNewComponent implements OnInit {
 
    }
 
+   
+
   ngOnInit(): void {
     this.getAreas();
-    this.getCursosOfAreas(18);
+    
     this.getNiveles();
-    this.getGradosOfNivel(1);
+
+    this.getDocentes();
+    
   }
 
   getAreas(){
     this.areaService.getArea().subscribe( response=>{
-      this.secciones = response.data;
+      this.areas = response.data;
      
   }, error => {
     this.error = error; 
@@ -66,17 +91,22 @@ export class CargaNewComponent implements OnInit {
   });
   }
 
-  getCursosOfAreas(id:number):void{
-    console.log("asdfag");
-    this.areaService.getCursos(id).subscribe(response=>{
-      this.cursos=response.data;
+  getCursosOfAreas(event):void{
+    const element = event.currentTarget as HTMLSelectElement
+    const value = element.value
+    console.log(value);
+    this.areaService.getCursos(parseInt(value)).subscribe(response => {
+      this.cursos = response.data;
+      console.log("ggg");
+      console.log("hola perro");
+      console.log(this.cursos);
       console.log(this.cursos);
     });
   }
 
   getNiveles(){
     this.nivelService.getNivel().subscribe( response=>{
-      this.secciones = response.data;
+      this.niveles = response.data;
      
   }, error => {
     this.error = error; 
@@ -84,20 +114,38 @@ export class CargaNewComponent implements OnInit {
   });
   }
 
-  getGradosOfNivel(id:number):void{
-    
-    this.nivelService.getGrados(id).subscribe(response=>{
-      this.grados=response.data;
+  getGradosOfNivel(event):void{
+    const element = event.currentTarget as HTMLSelectElement
+    const value = element.value
+    console.log(value);
+    this.nivelService.getGrados(parseInt(value)).subscribe(response => {
+      this.grados = response.data;
+      console.log("ggg");
       console.log(this.grados);
     });
   }
 
-  getSeccionesOfGrado(id:number):void{
+  getSeccionesOfGrado(event):void{
     
-    this.gradoService.getCursos(id).subscribe(response=>{
-      this.cursos=response.data;
-      console.log(this.cursos);
+    const element = event.currentTarget as HTMLSelectElement
+    const value = element.value
+    console.log(value);
+    this.gradoService.getSecciones(parseInt(value)).subscribe(response => {
+      this.secciones = response.data;
+      console.log("ggg");
+      console.log(this.secciones);
     });
+  }
+
+  getDocentes():void{
+    this.docenteService.getDocente().subscribe( response=>{
+      this.docentes = response.data;
+     
+  }, error => {
+    this.error = error; 
+
+  });
+
   }
 
   public save():void{
@@ -105,5 +153,53 @@ export class CargaNewComponent implements OnInit {
       this.activeModal.close(this.cargaForm.value);
     }
   }
+
+
+  getDocumentDefinition() {
+    
+    sessionStorage.setItem('resume', JSON.stringify(this.resume)); ​    
+     return {
+       content: [
+         {
+           text: 'Contrato',
+           bold: true,
+           fontSize: 20,
+           alignment: 'center',
+           margin: [0, 0, 0, 20]
+         },
+         {
+           columns: [
+             [{
+               text: this.resume.name,
+               style: 'name'
+             },
+             {
+               text: this.resume.address
+             },
+             {
+               text: 'Email : ' + this.degree
+             },
+             {
+               text: 'Contant No : ' + this.ccc,
+             },
+             {
+               text: 'GitHub: ' + `${localStorage.getItem('nameUser')}`,
+               link: this.resume.socialProfile,
+               color: 'blue',
+             }
+             ],
+             [
+               // Document definition for Profile pic
+             ]
+           ]
+         }],
+         styles: {
+           name: {
+             fontSize: 16,
+             bold: true
+           }
+         }
+     };
+   }
 
 }

@@ -13,6 +13,10 @@ import { AreaComponent} from '../../pages/area/container/area/area.component';
 import { CursoComponent} from '../../pages/curso/container/curso/curso.component';
 import {DocenteComponent} from '../../pages/docente/container/docente/docente.component';
 import { RepresentanteComponent } from '../../pages/representante/container/representante/representante.component';
+import { CargaComponent} from '../../pages/carga/container/carga/carga.component';
+import { AlumnoCComponent} from '../../pages/alumnoC/container/alumno-c/alumno-c.component';
+import { PeriodoComponent} from '../../pages/periodo/container/periodo/periodo.component';
+import {CmatriculaComponent} from '../../pages/cmatricula/container/cmatricula/cmatricula.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -27,5 +31,9 @@ export const AdminLayoutRoutes: Routes = [
     {path: 'areas',         component:AreaComponent},
     {path: 'cursos',         component:CursoComponent},
     {path: 'docentes',         component:DocenteComponent},
-    {path: 'representantes',         component:RepresentanteComponent}
+    {path: 'representantes',         component:RepresentanteComponent},
+    {path: 'cargas',         component:CargaComponent},
+    {path: 'alumnoc',         component:AlumnoCComponent},
+    {path: 'periodos',         component:PeriodoComponent},
+    {path: 'cmatriculas',         component:CmatriculaComponent}
 ];

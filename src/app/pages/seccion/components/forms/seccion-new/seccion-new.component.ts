@@ -20,13 +20,21 @@ export class SeccionNewComponent implements OnInit {
   grados:Grado[];
   niveles:Nivel[];
   error:String;
+  selected:HTMLSelectElement;
+  public searchResult: Array<any> = [];
+  public seriesList: Array<any> = [
+    //truncated for brevity
+    ];
+
+  public searchInput: String = '';
 
   constructor(private formBuilder:FormBuilder, public activeModal: NgbActiveModal, private gradoService:GradoService, private nivelService:NivelService) {
 
     this.seccionForm=this.formBuilder.group({
       nom_seccion:['',[Validators.required]],
       desc_seccion:['',[Validators.required]],
-      grado_id1:['',[Validators.required]]
+      grado_id1:['',[Validators.required]],
+      selected:['']
     });
 
    }
@@ -48,12 +56,30 @@ export class SeccionNewComponent implements OnInit {
   });
   }
 
-  getGradosOfNivel(id:number):void{
+  getGradosOfNivel(event):void{
     console.log("asdfag");
-    this.nivelService.getGrados(id).subscribe(response=>{
+    const  element = event.currentTarget as HTMLSelectElement
+    //const t=
+    const value = element.value
+    
+    //this.selected = value;
+    console.log(value);
+    //const value=event.target.value;
+    //this.selected=value;
+    this.nivelService.getGrados(parseInt(value)).subscribe(response=>{
       this.grados=response.data;
+      console.log("ggg");
       console.log(this.grados);
     });
+  }
+
+  fetchSeries(event: any) {
+    if (event.target.value === '') {
+      return this.searchResult = [];
+    }
+    this.searchResult = this.grados.filter((grados) => {
+      return grados.nom_grado.toLowerCase().startsWith(event.target.value.toLowerCase());
+    })
   }
 
   public save():void{

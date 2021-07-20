@@ -36,7 +36,7 @@
             
           <div  style="display: inline;" >
               <label for="dateOfBirth2" style="display: inline-flex;" >Niveles</label>
-              <select style="border-style: solid; border-color: gray; display: inline;"   formControlName="nivel_id" placeholder="Departamento" size="giant" fullWidth
+              <select class="form-control  form-control-sm" style="border-style: solid; border-color: gray; display: inline;"   formControlName="nivel_id" placeholder="Departamento" size="giant" fullWidth
                 name="nivel_id" aria-placeholder="asdf" >
                   
                   <option  *ngFor="let item of niveles" [value]="item.id">{{ item.nom_nivel }}

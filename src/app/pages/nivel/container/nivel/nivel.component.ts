@@ -41,6 +41,8 @@ export class NivelComponent implements OnInit {
       const nivelForm=this.modalService.open(NivelNewComponent,{size:'lg'});
       nivelForm.componentInstance.title='New Nivel';
       nivelForm.result.then((result)=>{
+        console.log("prueba new nivel guardar");
+        console.log(result);
         this.nivelService.postNivel(result).subscribe(response=>{
           if(response.success){
             this.getNiveles();

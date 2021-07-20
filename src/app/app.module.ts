@@ -17,16 +17,7 @@ import { NbThemeModule, NbLayoutModule, NbCardModule,
   NbContextMenuModule, NbDialogModule, NbIconModule, NbButtonModule, NbSelectModule, NbSpinnerModule, NbDatepickerModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { ThemeModule } from './@theme/theme.module';
-import { CargaNewComponent } from './pages/carga/components/forms/carga-new/carga-new.component';
-import { CargaEditComponent } from './pages/carga/components/forms/carga-edit/carga-edit.component';
-import { CargaListComponent } from './pages/carga/components/list/carga-list/carga-list.component';
-import { CargaComponent } from './pages/carga/container/carga/carga.component';
-
-
-
-
-
-
+import { AlumnoCargasComponent } from './pages/alumno/components/forms/alumno-cargas/alumno-cargas.component';
 
 @NgModule({
   imports: [
@@ -58,16 +49,9 @@ import { CargaComponent } from './pages/carga/container/carga/carga.component';
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-    CargaNewComponent,
-    CargaEditComponent,
-    CargaListComponent,
-    CargaComponent,
+    AlumnoCargasComponent,
    
-    
-    
-    
-
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

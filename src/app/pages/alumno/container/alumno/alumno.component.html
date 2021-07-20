@@ -1,3 +1,11 @@
-<app-alumno-list [alumnos]="alumnos" (onNew)="onNewAlumno($event)" (onDelete)="delete($event)" (onEdit)="editAlumno($event)"></app-alumno-list>
 
 
+
+
+<nb-layout>
+    <nb-layout-column>
+        <app-alumno-list [alumnos]="alumnos" (onNew)="onNewAlumno($event)" 
+        (matricularAlumno)="onNewMatricula($event)" (onDelete)="delete($event)" 
+        (onEdit)="editAlumno($event)" (contratosOfAlumno)="getContratosOfAlumno($event)"   ></app-alumno-list>
+    </nb-layout-column>
+</nb-layout>

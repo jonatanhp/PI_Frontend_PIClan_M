@@ -62,6 +62,13 @@ export class  SeccionService{
         catchError(this.httpError));
   }
 
+  public getCargas(id:number):Observable<any>{
+
+    return this.httpClient.get(`${environment.url}${this.endPoint}${id}/cargas`, this.httpHeaders)
+    .pipe(retry(1),
+        catchError(this.httpError));
+  }
+
   httpError(error) {
     let msg = '';
     if (error.error instanceof ErrorEvent) {
