@@ -100,7 +100,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   redirectInto(): void {
     
-    this.router.navigate(['dashboard']);
+    this.router.navigate(['cargas']);
   }
 
 }

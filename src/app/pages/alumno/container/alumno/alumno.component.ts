@@ -108,7 +108,7 @@ export class AlumnoComponent implements OnInit {
     });
   }
 
-  onNewMatricula(eventalumno: string){
+  onNewMatricula(eventalumno: number){
     console.log("nnnn");
     console.log(eventalumno);   
       

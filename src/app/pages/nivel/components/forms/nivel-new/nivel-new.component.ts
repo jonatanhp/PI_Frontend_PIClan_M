@@ -27,14 +27,7 @@ export class NivelNewComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  fetchSeries(event: any) {
-    if (event.target.value === '') {
-      return this.searchResult = [];
-    }
-    this.searchResult = this.seriesList.filter((series) => {
-      return series.name.toLowerCase().startsWith(event.target.value.toLowerCase());
-    })
-  }
+  
 
   public save():void{
     if (this.nivelForm.valid){

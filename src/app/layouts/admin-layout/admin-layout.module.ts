@@ -33,6 +33,7 @@ import { AlumnoEditComponent } from 'src/app/pages/alumno/components/forms/alumn
 import { AlumnoListComponent } from 'src/app/pages/alumno/components/list/alumno-list/alumno-list.component';
 import { AlumnoService } from 'src/providers/alumno/alumno.service';
 import { AlumnoContratosComponent} from '../../pages/alumno/components/forms/alumno-contratos/alumno-contratos.component';
+import { AgregarCargasComponent} from '../../pages/alumno/components/forms/agregar-cargas/agregar-cargas.component';
 
 
 import { ThemeModule } from '../../@theme/theme.module';
@@ -149,6 +150,7 @@ import { CmatriculaService } from 'src/providers/cmatricula/cmatricula.service';
     AlumnoEditComponent,
     AlumnoListComponent,
     AlumnoContratosComponent,
+    AgregarCargasComponent,
 
     GradoComponent,
     GradoNewComponent,

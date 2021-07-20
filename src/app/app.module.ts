@@ -18,6 +18,8 @@ import { NbThemeModule, NbLayoutModule, NbCardModule,
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { ThemeModule } from './@theme/theme.module';
 import { AlumnoCargasComponent } from './pages/alumno/components/forms/alumno-cargas/alumno-cargas.component';
+import { ContratoCargasComponent } from './pages/alumno/components/forms/contrato-cargas/contrato-cargas.component';
+
 
 @NgModule({
   imports: [
@@ -50,6 +52,8 @@ import { AlumnoCargasComponent } from './pages/alumno/components/forms/alumno-ca
     AdminLayoutComponent,
     AuthLayoutComponent,
     AlumnoCargasComponent,
+    ContratoCargasComponent,
+  
    
     ],
   providers: [],

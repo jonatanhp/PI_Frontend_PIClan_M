@@ -28,7 +28,8 @@ export class SeccionNewComponent implements OnInit {
 
   public searchInput: String = '';
 
-  constructor(private formBuilder:FormBuilder, public activeModal: NgbActiveModal, private gradoService:GradoService, private nivelService:NivelService) {
+  constructor(private formBuilder:FormBuilder, public activeModal: NgbActiveModal, private gradoService:GradoService, 
+    private nivelService:NivelService) {
 
     this.seccionForm=this.formBuilder.group({
       nom_seccion:['',[Validators.required]],
@@ -70,7 +71,11 @@ export class SeccionNewComponent implements OnInit {
       this.grados=response.data;
       console.log("ggg");
       console.log(this.grados);
+      console.log(this.niveles);
+      console.log("prueba de fuego");
     });
+    console.log(this.niveles);
+      console.log("prueba de fuego");
   }
 
   fetchSeries(event: any) {

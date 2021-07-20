@@ -47,7 +47,7 @@
         <label for="grado_id1" class="label required">Grado</label>
         <select class="form-control  form-control-sm" formControlName="grado_id1" placeholder="Nivel" size="small" fullWidth
           name="grado_id1" id="grado_id1">
-          <option  (keyup)="fetchSeries($event)"  [(ngModel)]="searchInput"  *ngFor="let item of grados" [value]="item.id">{{ item.nom_grado }}
+          <option    *ngFor="let item of grados" [value]="item.id">{{ item.nom_grado }}
           </option>
           
           <option></option>

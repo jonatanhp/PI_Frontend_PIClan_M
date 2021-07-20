@@ -65,6 +65,9 @@ export class CmatriculaNewComponent implements OnInit {
   }
 
   getRepresentantes(){
+    this.matriculaForm.patchValue({
+      alumno_id: this.ids
+   });
     this.representanteService.getRepresentante().subscribe( response=>{
       this.representantes = response.data;
       console.log("recuperacion de representantes");

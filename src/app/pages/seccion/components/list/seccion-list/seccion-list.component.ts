@@ -18,13 +18,13 @@ export class SeccionListComponent implements OnInit {
   @Output() onEdit:EventEmitter<bigint>=new EventEmitter();
   @Output() onDelete:EventEmitter<bigint>=new EventEmitter();
   @Output() SeccionGradosList:EventEmitter<number>=new EventEmitter();
-  @Output() SeccionNivelesList:EventEmitter<number>=new EventEmitter();
+  @Output() cargasOfNivel:EventEmitter<number>=new EventEmitter();
 
   constructor() { }
 
 
   ngOnInit(): void {
-    this.getListNivelesToSeccion;
+    this.getCargasOfSeccion;
   }
   
   public newSeccion():void{
@@ -39,8 +39,8 @@ export class SeccionListComponent implements OnInit {
     this.onDelete.emit(id);
   }
 
-  public getListNivelesToSeccion(id:number){
-    this.SeccionNivelesList.emit(id);
+  public getCargasOfSeccion(id:number){
+    this.cargasOfNivel.emit(id);
   }
 
 }

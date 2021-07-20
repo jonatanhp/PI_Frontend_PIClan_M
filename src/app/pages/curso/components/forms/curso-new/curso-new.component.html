@@ -72,7 +72,7 @@
               
             <div  style="display: inline;" >
                 <label for="dateOfBirth2" style="display: inline-flex;" >Areas</label>
-                <select style="border-style: solid; border-color: gray; display: inline;"   formControlName="area_id" placeholder="Departamento" size="giant" fullWidth
+                <select class="form-control  form-control-sm"  style="border-style: solid; border-color: gray; display: inline;"   formControlName="area_id" placeholder="Departamento" size="giant" fullWidth
                   name="nivel_id" aria-placeholder="asdf" >
                     
                     <option  *ngFor="let item of areas" [value]="item.id">{{ item.nom_area }}

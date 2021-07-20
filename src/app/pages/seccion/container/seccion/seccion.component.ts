@@ -8,6 +8,7 @@ import { SeccionService } from '../../../../../providers/seccion/seccion.service
 import { SeccionNewComponent } from '../../components/forms/seccion-new/seccion-new.component';
 import { NivelService } from 'src/providers/nivels/nivels.service';
 import { SeccionEditComponent } from '../../components/forms/seccion-edit/seccion-edit.component';
+import { AlumnoCargasComponent } from 'src/app/pages/alumno/components/forms/alumno-cargas/alumno-cargas.component';
 
 @Component({
   selector: 'ngx-seccion',
@@ -109,5 +110,36 @@ export class SeccionComponent implements OnInit {
       this.error=error;
     });
   }
+
+
+  getCargasofSeccion(eventalumno: number){
+    console.log("nnnn");
+    console.log(eventalumno);   
+      
+      const productForm = this.modalService.open(AlumnoCargasComponent,  {size: 'lg'});
+      productForm.componentInstance.idc= eventalumno;
+      productForm.componentInstance.title = 'Nueva Matricula';
+      productForm.componentInstance.ids=eventalumno;
+      console.log("qwert");
+      console.log(productForm.componentInstance.ids);
+      console.log("qwert");
+      productForm.result.then((result) => {
+        console.log("ya estoy harto");
+        console.log(result);
+        //this.cmatriculaService.postCmatricula(result).subscribe(response => {
+          //if (response.success) {
+         //   console.log(response);
+          //}
+       // }, error => {
+          //this.error = error;
+        //}
+        //);
+    
+      });
+  
+      
+      
+  
+    }
 
 }

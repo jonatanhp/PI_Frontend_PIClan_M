@@ -4,6 +4,7 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import { Carga } from 'src/app/pages/carga/model/carga';
 import { Cmatricula } from 'src/app/pages/cmatricula/model/cmatricula';
 import { Alumno } from '../../../model/alumno';
+import { AlumnoService} from '../../../../../../providers/alumno/alumno.service';
 import { Nivel } from 'src/app/pages/nivel/model/nivel';
 import { Grado } from 'src/app/pages/grado/model/grado';
 import { Seccion } from 'src/app/pages/seccion/model/seccion';
@@ -12,6 +13,7 @@ import { GradoService } from 'src/providers/grado/grado.service';
 import { CargaService } from 'src/providers/carga/carga.service';
 import { CmatriculaService } from 'src/providers/cmatricula/cmatricula.service';
 import { SeccionService } from 'src/providers/seccion/seccion.service';
+import { NumericLiteral } from 'typescript';
 
 
 @Component({
@@ -21,6 +23,7 @@ import { SeccionService } from 'src/providers/seccion/seccion.service';
 })
 export class AlumnoCargasComponent implements OnInit {
   @Input() title: string;
+  @Input() idc:number;
   @Output() onNewData: EventEmitter<Object>=new EventEmitter();
   contratos:Cmatricula[];
   contrato:Cmatricula;
@@ -31,6 +34,7 @@ export class AlumnoCargasComponent implements OnInit {
   carga:Carga;
   error:String;
   acargaForm:FormGroup;
+  alumno:Alumno;
 
   constructor(private formBuilder:FormBuilder, public activeModal: NgbActiveModal, private cargaService:CargaService, 
     private nivelService:NivelService, private cmatriculaService:CmatriculaService, private gradoService:GradoService
@@ -47,6 +51,13 @@ export class AlumnoCargasComponent implements OnInit {
      }
 
   ngOnInit(): void {
+
+
+    this.seccionService.getCargas(this.idc).subscribe(response => {
+      this.cargas = response.data;
+      console.log("ggg");
+      console.log(this.cargas);
+    });
   }
 
 
@@ -68,6 +79,7 @@ export class AlumnoCargasComponent implements OnInit {
       this.grados = response.data;
       console.log("ggg");
       console.log(this.grados);
+      
     });
   }
 

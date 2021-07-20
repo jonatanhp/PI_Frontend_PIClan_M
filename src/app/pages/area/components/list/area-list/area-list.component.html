@@ -26,9 +26,9 @@
       <td>{{n.nom_area}}</td>
       <td>{{n.created_at}}</td>
       <td>{{n.updated_at}}</td>
-      <td><button class="btn-danger" (click)="delete(n.id)">Eliminar</button>
-        <button class="btn-primary" (click)="editArea(n.id)">Editar</button>
-        <button class="btn-success" (click)="searchCursosOfArea(n.id)">Cursos</button>
+      <td><button nbButton status="danger" (click)="delete(n.id)">Eliminar</button>
+        <button nbButton status="primary" (click)="editArea(n.id)">Editar</button>
+        <button nbButton status="success" (click)="searchCursosOfArea(n.id)">Cursos</button>
       </td>
     </tr>
 

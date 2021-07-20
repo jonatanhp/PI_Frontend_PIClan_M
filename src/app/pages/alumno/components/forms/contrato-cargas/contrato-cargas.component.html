@@ -39,34 +39,29 @@
           <thead>
             <tr>
               <th>N</th>
-              <th>Cod</th>
-              <th>Confirmado</th>
+              <th>Coddd</th>
+              <!--<th>Confirmado</th>
               
               <th>Alumno</th>
               <th>Representante</th>
               <th>Periodo</th>
               <th>Created at</th>
-              <th>Updated at</th>
+              <th>Updated at</th>-->
               <!--<th>Llave</th>-->
-              <th class="text-center">Acciones</th>
+              
             </tr>
           </thead>
           <tbody>
               
-            <tr *ngFor="let n of cmatriculas">
+            <tr *ngFor="let n of cargas">
               <th scope="row">{{n.id}}</th>
-              <td>{{n.cod_matricula}}</td>
-              <td>{{n.confirmacion}}</td>
+              <td>ll</td>
+              <!--<td>{{n.confirmacion}}</td>
               <td>{{n.alumno.name}}</td>
               <td>{{n.representante.name}}</td>
-              <td>{{n.periodo.nom_periodo}}</td>
-              <td>{{n.created_at}}</td>
-              <td>{{n.updated_at}}</td>
-              <td>
-                <button nbButton status="primary"  (click)="agregarCarga(n.id)">Agregar Curso</button>
-                <button nbButton status="success" (click)="getCargasOfContrato(n.id)" >Cursos Matriculados</button>
-                
-              </td>
+              <td>{{n.periodo.nom_periodo}}</td>-->
+              
+              
             </tr>
         
             </tbody>
@@ -91,4 +86,5 @@
   
   
   
+
 
